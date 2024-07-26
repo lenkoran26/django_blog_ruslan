@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+<h2>Страница создания нового поста</h2>
+
+<form action="{% url 'main:create_post' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+
+    <button type="submit">Создать пост</button>
+</form>
+
+
+</body>
+</html>
+

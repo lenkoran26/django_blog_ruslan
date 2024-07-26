@@ -1,0 +1,19 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h2>Список постов</h2>
+
+{% for post in posts %}
+<p><a href="{% url 'main:post_detail' pk=post.id %}">Пост № {{post.pk}}</a></p>
+    <p>Автор поста - {{post.author}}</p>
+    <p>Заголовок поста - {{post.title}}</p>
+    <p>Текст поста - {{post.text}}</p>
+    {% if post.image %}
+        <img width="300" height="200" src="{{post.image.url}}"/>
+    {% endif %}
+    <hr>
+{% endfor %}
+
+{% endblock content %}
+
+

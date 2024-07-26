@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h2>Информация о посте</h2>
+
+<p>Пост № {{post.pk}} </p>
+<p>Автор поста - {{post.author}}</p>
+<p>Заголовок поста - {{post.title}}</p>
+<p>Текст поста - {{post.text}}</p>
+{% if post.image %}
+        <img width="300" height="200" src="{{post.image.url}}"/>
+    {% endif %}
+
+{% if user == post.author %}
+    <p><a href="{%%}">Редактировать публикацию</a></p>
+    <p><a href="#">Удалить публикацию</a></p>
+{% endif %}
+{% endblock content %}
